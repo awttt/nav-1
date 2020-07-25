@@ -156,5 +156,7 @@ display: block;
   align-items: center;
 }
 
-
-/*# sourceMappingURL=style.24d606a0.css.map */
+.sub{
+  display: flex;
+  justify-content: center;
+}

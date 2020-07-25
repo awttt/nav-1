@@ -55,7 +55,6 @@ $(".addButton").on("click", () => {
 });
 
 window.onbeforeunload = () => {
-  console.log("yyyy");
   const string = JSON.stringify(hashMap); //JSON.stringify把对象变成字符串
   localStorage.setItem("x", string); //在本地的存储里设置x，x里的值就是string
 };
