@@ -40,9 +40,8 @@
   </ul>
 </main>
 <footer class="sub">
-  <div>
-
-  </div>
+  <div class="weizhi"></div>
+  <div class="weather"></div>
 
 </footer>
 <script src="//at.alicdn.com/t/font_1722290_0flhdob14y17.js"></script>
@@ -50,24 +49,32 @@
 
 <script src="js/main.js"></script>
 <script>
-
+let str = ''
   $.ajax({
+
     url: "http://saweather.market.alicloudapi.com/ip-to-weather",
     data: {ip: '',
-
     },
     type: "get",
     dataType: "json",
     success: function (data) {
-      console.log(data)
-      console.log(data.showapi_res_body.cityInfo.c3)
-      console.log(data.showapi_res_body.cityInfo.c7)
+      console.log(data.showapi_res_body)
+     for(let i in data.showapi_res_body.cityInfo){
+       str +='<div>'+data.showapi_res_body.cityInfo[i]+'<div>'
+     }
+      console.log(str)
+
       console.log(data.showapi_res_body.f1.day_air_temperature)
+      temperature=data.showapi_res_body.f1.day_air_temperature
+      $('.weizhi').html(str)
+      $('.weather').html(temperature)
+
     },
     beforeSend: function (xhr) {
       xhr.setRequestHeader("Authorization", "APPCODE daacf04e8e8a434994f19f752ff42817");
     }
   })
+
 
 
 </script>
